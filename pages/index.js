@@ -9,15 +9,14 @@ import FooterBanner from "../components/FooterBanner";
 const Home = ({ products, bannerData }) => {
   return (
     <>
-      <HeroBanner />
-
+      <HeroBanner heroBanner={bannerData.lenght && bannerData[0]} />
       <div className="products-heading">
         <h2>Best Selling Products</h2>
         <p>Speakers of many variations</p>
       </div>
 
       <div className="products-container">
-        {["Product 1", "Product 2"].map((product) => product)}
+        {products?.map((product) => product.name)}
       </div>
 
       <FooterBanner />
