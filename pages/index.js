@@ -1,14 +1,14 @@
 import React from "react";
+import { client } from "../lib/client";
 
 // stack imports don't work, research why!!!
 // import { Product, FooterBanner, HeroBanner } from "../components";
-import HeroBanner from "../components/HeroBanner"
-import FooterBanner from "../components/FooterBanner"
+import HeroBanner from "../components/HeroBanner";
+import FooterBanner from "../components/FooterBanner";
 
-const Home = () => {
+const Home = ({ products, bannerData }) => {
   return (
     <>
-
       <HeroBanner />
 
       <div className="products-heading">
@@ -23,6 +23,19 @@ const Home = () => {
       <FooterBanner />
     </>
   );
+};
+
+export const getServerSideProps = async () => {
+  // fetching the products
+  const query = '*[_type == "product"]';
+  const products = await client.fetch(query);
+  // fetching the banner
+  const bannerQuery = '*[_type == "banner"]';
+  const bannerData = await client.fetch(bannerQuery);
+
+  return {
+    props: { products, bannerData }
+  }
 };
 
 export default Home;
