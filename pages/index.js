@@ -5,6 +5,7 @@ import { client } from "../lib/client";
 // import { Product, FooterBanner, HeroBanner } from "../components";
 import HeroBanner from "../components/HeroBanner";
 import FooterBanner from "../components/FooterBanner";
+import Product from "../components/Product";
 
 const Home = ({ products, bannerData }) => {
   return (
@@ -18,7 +19,7 @@ const Home = ({ products, bannerData }) => {
       </div>
 
       <div className="products-container">
-        {products?.map((product) => product.name)}
+        {products?.map((product) => <Product  key={product._id} product={product}/>)}
       </div>
 
       <FooterBanner />
