@@ -1,5 +1,6 @@
 import React from "react";
 
+// stack imports don't work, research why!!!
 // import { Product, FooterBanner, HeroBanner } from "../components";
 import HeroBanner from "../components/HeroBanner"
 import FooterBanner from "../components/FooterBanner"
