@@ -1,5 +1,6 @@
 import React from "react";
 import { client, urlFor } from "../../lib/client";
+// import { Product } from "../../components";
 import Product from "../../components/Product";
 
 import {
@@ -8,6 +9,7 @@ import {
   AiFillStar,
   AiOutlineStar,
 } from "react-icons/ai";
+
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
@@ -19,12 +21,12 @@ const ProductDetails = ({ product, products }) => {
           <div className="image-container">
             <img src={urlFor(image && image[0])} />
           </div>
-          {/* <div className="small-images-container"> */}
+          <div className="small-images-container">
           {/* changing  the big images by hovering over small images */}
-          {/* {image?.map((item, i) => (
+          {image?.map((item, i) => (
               <img src={urlFor(item)} className="" onMouseEnter="" />
             ))}
-          </div> */}
+          </div>
         </div>
 
         <div className="product-detail-desc">
@@ -72,7 +74,7 @@ const ProductDetails = ({ product, products }) => {
         <div className="marquee">
           <div className="maylike-products-container">
             {products.map((item) => (
-              <Product />
+              <Product key={item._id} product={item} />
             ))}
           </div>
         </div>
@@ -117,6 +119,8 @@ export const getStaticProps = async ({ params: { slug }}) => {
 
   // fetching the productS
   const products = await client.fetch(productsQuery);
+
+  console.log(product);
 
   return {
     props: { products, product },
