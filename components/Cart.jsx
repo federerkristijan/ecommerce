@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useRef } from "react";
+import Link from "next/link";
+import {
+  AiOutlineMinus,
+  AiOutlinePlus,
+  AiOutlineleft,
+  AiOutlineShopping,
+} from "react-icons/ai";
+import { TiDeleteOutline } from "react-icons/ti";
+import toast from "react-hot-toast";
+
+import { useStateContext } from "../context/StateContext";
+import { urlFor } from "../lib/client";
 
 const Cart = () => {
-  return (
-    <div>Cart</div>
-  )
-}
+  return <div>Cart</div>;
+};
 
-export default Cart
+export default Cart;
