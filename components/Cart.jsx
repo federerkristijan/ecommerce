@@ -12,7 +12,7 @@ import { urlFor } from "../lib/client";
 
 const Cart = () => {
   const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart } = useStateContext;
+  const { totalPrice, totalQuantities, cartItems, setShowCart } = useStateContext();
 
   return <div className="cart-wrapper" ref={cartRef}>
     <div className="cart-container">
