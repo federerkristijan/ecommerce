@@ -47,10 +47,22 @@ export const StateContext = ({ children }) => {
     toast.success(`${qty} ${product.name} added to the cart.`);
   };
 
+  const onRemove = (product) => {
+    foundProduct = cartItems.find((item) => item._id === product._id);
+    const newCartItems = cartItems.filter((item) => item._id !== product._id);
+
+    // removing all the items
+    setTotalPrice((prevTotalPrice) => prevTotalPrice -foundProduct.price * foundProduct.quantity);
+    // removing just one item
+    setTotalQuantities(prevTotalQuantities => prevTotalQuantities - foundProduct.quantity);
+    setCartItems(newCartItems);
+  }
+
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id);
     index = cartItems.findIndex((product) => product._id === id);
-    const newCartItems = cartItems.splice(index, 1);
+    // instead of .splice (mutative) use .fitler (non-mutative)
+    const newCartItems = cartItems.filter((item) => item._id !== id);
 
     if (value === "inc") {
       // updating the current cartItems and adding a new element
@@ -99,7 +111,8 @@ export const StateContext = ({ children }) => {
         incQty,
         decQty,
         onAdd,
-        toggleCartItemQuantity
+        toggleCartItemQuantity,
+        onRemove
       }}
     >
       {children}
