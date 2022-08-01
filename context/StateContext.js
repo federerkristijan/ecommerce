@@ -50,6 +50,7 @@ export const StateContext = ({ children }) => {
   const toggleCartItemQuantity = (id, value) => {
     foundProduct = cartItems.find((item) => item._id === id);
     index = cartItems.findIndex((product) => product._id === id);
+    // instead of .splice (mutative) use .fitler (non-mutative)
     const newCartItems = cartItems.splice(index, 1);
 
     if (value === "inc") {
