@@ -11,7 +11,7 @@ export default async function handler(req, res) {
         shipping_options: [
           { shipping_rate: 'shr_1LS4IZHPlnHSj03oVbZHc64m' },
           { shipping_rate: 'shr_1LS4RcHPlnHSj03ofinO00k8' },
-        ]
+        ],
         line_items: [
           {
             // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
