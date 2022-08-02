@@ -110,13 +110,13 @@ const Cart = () => {
                         </span>
                       </p>
                     </div>
-                    <botton
+                    <button
                       type="button"
                       className="remove-item"
                       onClick={() => onRemove(item)}
                     >
                       <TiDeleteOutline />
-                    </botton>
+                    </button>
                   </div>
                 </div>
               </div>
