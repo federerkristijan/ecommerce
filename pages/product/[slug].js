@@ -26,6 +26,7 @@ const ProductDetails = ({ product, products }) => {
             {/* changing  the big images by hovering over small images */}
             {image?.map((item, i) => (
               <img
+                key={i}
                 src={urlFor(item)}
                 className={
                   i === index ? "small-image selected-image" : "small-image"

@@ -1,4 +1,6 @@
-const stripe = require('stripe')(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
+import Stripe from "stripe";
+
+const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY);
 
 export default async function handler(req, res) {
   if (req.method === 'POST') {
@@ -27,6 +29,7 @@ export default async function handler(req, res) {
                 name: item.name,
                 images: [newImage],
               },
+              // unit price is in cents
               unit_amount: item.price * 100,
             },
             adjustable_quantity: {
