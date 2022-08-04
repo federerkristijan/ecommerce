@@ -23,7 +23,6 @@ const Cart = () => {
   } = useStateContext();
 
   const handleCheckout = async () => {
-    console.log ('1');
     const stripe = await getStripe();
 
     const response = await fetch('/api/stripe', {
@@ -34,12 +33,8 @@ const Cart = () => {
       body: JSON.stringify(cartItems),
     });
 
-    console.log('2');
-
     // if there's a server error, exit the function
     if (response.statusCode === 500) return;
-
-    console.log('3');
 
     const data = await response.json();
 
