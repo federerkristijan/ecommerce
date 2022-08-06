@@ -18,7 +18,7 @@ export default async function handler(req, res) {
           { shipping_rate: 'shr_1LS4IZHPlnHSj03oVbZHc64m' },
           { shipping_rate: 'shr_1LS4RcHPlnHSj03ofinO00k8' },
         ],
-        line_items: req.body((item) => {
+        line_items: req.body.map((item) => {
           const img = item.image[0].asset._ref;
           // replacing the data with the real image
           const newImage = img.replace('image-', 'https://cdn.sanity.io/images/k22oz890/production/').replace('-webp', '.webp')
