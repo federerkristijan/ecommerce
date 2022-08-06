@@ -669,6 +669,7 @@ span.text-red {
     flex-wrap: wrap;
   }
   .product-detail-container .product-detail-image {
+    margin-right: 1.5rem;
     width: 350px;
     height: 350px;
   }
